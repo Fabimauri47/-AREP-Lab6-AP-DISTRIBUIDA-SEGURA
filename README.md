@@ -1,9 +1,9 @@
-# -AREP-Lab6-AP-DISTRIBUIDA-SEGURA
+# Lab #6-Taller Aplicación Distribuida Segura en Todos sus Frentes
 
 
 ## Introducción Del Proyecto
 
-En este laboratorio 5 aprendimos a crear una pequeña aplicación web, usando un micro-framework de Spark Java, el cual se encargará de crear aplicaciones pequeñas sin mayor esfuerzo. En donde una vez se tenga una aplicación se procederá a construir un contenedor, para hacer uso de Docker, en la aplicación. Lo cual nos permitirá desplegarlo y configurarlo desde nuestra maquina local.
+	En este laboratorio 6 se realizó la construcción de un aplicativo web, diseñado en java y haciendo uso del framework Spark, con el fin de poder implementar y hacer uso de los certificados de SSL y así como de los protocolos HTTPS. La arquitectura se basa en dos nodos, que se comunican por medio de certificados (SSL), así como de hacer uso de una calculadora que se encarga de enviar la media y desviación estándar acorde a los valores suministrados anteriormente. Así como un control de nodos que se encargaran de llevar un control sobre las sesiones que se inician de diferentes usuarios y poder encriptar las contraseñas de estos mismos.
 
 
 ### Pre-Requisitos
@@ -12,14 +12,13 @@ En este laboratorio 5 aprendimos a crear una pequeña aplicación web, usando un
        solo es necesario darle clic al que necesite y lo dirigirá a la página de instalación:
 
 
-    * [Java 11](https://www.java.com/es/) - Codificación
+    * [Java 8](https://www.java.com/es/) - Codificación
     * [Maven](https://maven.apache.org/) - Manejo de Dependencias
     * [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - Control de Sistemas de veriones.
-    * [AWS](https://aws.amazon.com/es/education/awseducate/) - Despligue de Ambiente Web
-    * [CircleCI](https://circleci.com/) - Calidad y ejecución del codigo
+    * [Docker Install](https://docs.docker.com/engine/install/) - Despligue de proyecto.
+    * 
 
-
-### AWS Virtual Machine
+### AWS Virtual Machine: Video de despliegue
 
 >[![AWS Virtual Machine]()
 
@@ -27,6 +26,19 @@ En este laboratorio 5 aprendimos a crear una pequeña aplicación web, usando un
 ### Integracion Continua con Circle CI
 >[![CircleCI](https://circleci.com/gh/The-Developers-Eci/2020-2-PROYCVDS-THE_DEVELOPERS_ECI.svg?style=svg)](https://app.circleci.com/pipelines/github/Fabimauri47/-AREP-Lab3-CLIENTES-Y-SERVICIOS)
 >
+
+## Arquitectura 
+
+La arquitectura de este proyecto se baso en el siguiente modelo, proporcionado en la el taller:
+
+  ![texto cualquiera por si no carga la imagen](https://github.com/Fabimauri47/AREP-Lab2-Heroku/blob/main/Imagenes/Clonacion%20proyecto%20lab%202.png)
+
+Para ello es necesario que dicha arquitectura cumpla algunos requerimientos como lo son el acceso al browser de la aplicación, permitiendo la autenticación, autorización e integridad de los usuarios. Además de tener al menos dos computadores comunicándose entre ellos y un acceso de servicios remotos que deben garantizar, autenticación y autorización entre todos los servicios.
+
+La arquitectura de este laboratorio se basa en realización de un aplicativo web, haciendo uso de certificados web, en el cual permitirá acceder de manera local y remota sobre el control de los servicios que se están manejando en el aplicativo y así como consumirlos. También permitir la función de poder guardas los servicios que no se quieren que sean expuestos, como los de visualizar en el diagrama de arquitectura, haciendo uso de "KeyStore" y "TrustStore" en el aplicativo web manejado.
+
+Los certificados se encontrarán almacenados en el directorio del repositorio y los dos TrustStore de los servicios que se ofrecen, para hacer uso de estos en los aplicativos. Para poder agregar un nuevo servicio, se deben crear "KeyStore" y "TrutStore" nuevos para cada servicio que se va a manejar y agregar dichos certificados a cada uno de los servicios que se van a usar. Por último, como segundo nivel de seguridad se debe contar con un servicio de LOGIN, el cual establecerá el bloqueo del servicios, cuando la sesiones se encuentren inactivas, además de cifrar las contraseñas de los usuarios haciendo uso de la Funciones HASH.
+
 
 ### Guia de Instalación
 
@@ -40,18 +52,22 @@ En este laboratorio 5 aprendimos a crear una pequeña aplicación web, usando un
        mvn package
     
 
-3. Ejecutamos el programa con el siguiente comando:
+3. Ejecutamos el programa de manera local,dentro del directorio DOCKERFILES con el siguiente comando:
 
-       mvn exec:java -D "exec.mainClass"="edu.escuelaing.demo.NanoSparkWebDemo"
+       docker-compose up -d
    
 
-4. Gereramos la documentación con el siguiente comando ejecutandolo desde consola:
+4. Para verificar que todo que la ejecución del programa se hizo de manera correcta, ingresamos el siguiente comando:
 
-       mvn javadoc:javadoc
+       docker ps
    
- 5. Si desea ejecutar el programa de forma local, procedemos a ejecutar el siguiente comando:
+5. Para hacer ingreso del aplicativo de manera web, de forma local se ingregar la siguiente URL:
 
-        java -cp target/classes edu.escuelaing.arep.RoundRobin.SparkWebServer
+        https://localhost:8000/
+		
+6. Para crear la documentación JavaDoc y que se genera apartir de lo realizado, se ejecuta el siguiente comando:
+
+		mvn javadoc:javadoc
 
 ## Corriendo Pruebas
 
@@ -59,16 +75,10 @@ Para correr las pruebas, usamos el siguiente comando en una terminal CMD o en un
 
          mvn test
 
- 
-## Desarrollo e Informe
-
-- Para conocer más sobre el desarrollo del proyecto, descargue el proyecto como se explica arriba o revise el informe:
-
-    -[Presione Aqui para revisar documento](https://github.com/Fabimauri47/-AREP-Lab5-MODULARIZACI-N-CON-VIRTUALIZACI--E-INTRODUCCI-N-A-DOCKER-Y-AWS/blob/main/Lab_5_Taller_de_modularizaci_n_con_virtualizaci_n__Docker_y_AWS.pdf)
 
 ## Construido con
 
-* [Java 11.0](https://www.java.com/es/) - Codificación y Lenguaje de Programacíon.
+* [Java](https://www.java.com/es/) - Codificación y Lenguaje de Programacíon.
 * [Maven](https://maven.apache.org/) - Manejo de Dependencias.
 * [IntelliJ IDEA](https://www.jetbrains.com/es-es/idea/) - Programa usado para la Codificacíon.
 * [AWS](https://aws.amazon.com/es/education/awseducate/) - Despligue de Ambiente Web
