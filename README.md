@@ -3,7 +3,7 @@
 
 ## Introducción Del Proyecto
 
-	En este laboratorio 6 se realizó la construcción de un aplicativo web, diseñado en java y haciendo uso del framework Spark, con el fin de poder implementar y hacer uso de los certificados de SSL y así como de los protocolos HTTPS. La arquitectura se basa en dos nodos, que se comunican por medio de certificados (SSL), así como de hacer uso de una calculadora que se encarga de enviar la media y desviación estándar acorde a los valores suministrados anteriormente. Así como un control de nodos que se encargaran de llevar un control sobre las sesiones que se inician de diferentes usuarios y poder encriptar las contraseñas de estos mismos.
+En este laboratorio 6 se realizó la construcción de un aplicativo web, diseñado en java y haciendo uso del framework Spark, con el fin de poder implementar y hacer uso de los certificados de SSL y así como de los protocolos HTTPS. La arquitectura se basa en dos nodos, que se comunican por medio de certificados (SSL), así como de hacer uso de una calculadora que se encarga de enviar la media y desviación estándar acorde a los valores suministrados anteriormente. Así como un control de nodos que se encargaran de llevar un control sobre las sesiones que se inician de diferentes usuarios y poder encriptar las contraseñas de estos mismos.
 
 
 ### Pre-Requisitos
@@ -20,7 +20,7 @@
 
 ### AWS Virtual Machine: Video de despliegue
 
->[![AWS Virtual Machine]()
+>[![AWS Virtual Machine](amazon/amzn2-ami-hvm-2.0.20210318.0-x86_64-gp2)
 
 
 ### Integracion Continua con Circle CI
@@ -31,7 +31,7 @@
 
 La arquitectura de este proyecto se baso en el siguiente modelo, proporcionado en la el taller:
 
-  ![texto cualquiera por si no carga la imagen](https://github.com/Fabimauri47/AREP-Lab2-Heroku/blob/main/Imagenes/Clonacion%20proyecto%20lab%202.png)
+  ![texto cualquiera por si no carga la imagen](https://github.com/Fabimauri47/-AREP-Lab6-AP-DISTRIBUIDA-SEGURA/blob/main/Img/arquitectura%20Lab.png)
 
 Para ello es necesario que dicha arquitectura cumpla algunos requerimientos como lo son el acceso al browser de la aplicación, permitiendo la autenticación, autorización e integridad de los usuarios. Además de tener al menos dos computadores comunicándose entre ellos y un acceso de servicios remotos que deben garantizar, autenticación y autorización entre todos los servicios.
 
