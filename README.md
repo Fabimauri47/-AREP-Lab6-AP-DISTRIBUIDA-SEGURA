@@ -16,7 +16,7 @@ En este laboratorio 6 se realizó la construcción de un aplicativo web, diseña
     * [Maven](https://maven.apache.org/) - Manejo de Dependencias
     * [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - Control de Sistemas de veriones.
     * [Docker Install](https://docs.docker.com/engine/install/) - Despligue de proyecto.
-    * 
+    
 
 ### AWS Virtual Machine: Video de despliegue
 
@@ -44,7 +44,7 @@ Los certificados se encontrarán almacenados en el directorio del repositorio y 
 
 1. Primero se debe clonar el repositorio, con el siguiente comando descrito:
 
-       git clone https://github.com/Fabimauri47/-AREP-Lab5-MODULARIZACI-N-CON-VIRTUALIZACI--E-INTRODUCCI-N-A-DOCKER-Y-AWS
+       git clone https://github.com/Fabimauri47/-AREP-Lab6-AP-DISTRIBUIDA-SEGURA
     
 
 2. Luego proceda abrir el cmd (Ventana de comandos) en donde tiene el repositorio alojado y ejecute el siguiente comando:
